@@ -7,6 +7,10 @@ data = t;
 data_cell = table2cell(t);
 data_num = cell2mat(data_cell);
 
+datX = data(:,1:end-1).Properties.VariableNames;
+klasy = categorical({'Klasa 1','Klasa 2','Klasa 3','Klasa 4'});
+klasyCell = cellstr(klasy);
+
 klasa1 = data_num(data_num(:,12)==1,:);
 klasa2 = data_num(data_num(:,12)==2,:);
 klasa3 = data_num(data_num(:,12)==3,:);
@@ -20,8 +24,6 @@ for i=1:4
         Srednie(i,j) = mean(data_num(data_num(:,12)==i,j));
     end
 end
-
-klasy = categorical({'Klasa 1','Klasa 2','Klasa 3','Klasa 4'});
 
 figure
 subplot(3,4,1)
@@ -68,6 +70,12 @@ subplot(3,4,11)
 bar(klasy,Srednie(:,11));
 title('dat11');
 ylabel('Wartosc srednia')
+
+tabelaSrednich = array2table(Srednie);
+tabelaSrednich.Properties.VariableNames = datX;
+tabelaSrednich.Properties.RowNames = klasyCell;
+tabelaSrednich
+
 
 
 
