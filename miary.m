@@ -12,7 +12,7 @@ klasa2 = data_num(data_num(:,12)==2,:);
 klasa3 = data_num(data_num(:,12)==3,:);
 klasa4 = data_num(data_num(:,12)==4,:);
 
-% Œrednie ------------------------------
+% Srednie ------------------------------
 Srednie = zeros(4,11);
 
 for i=1:11
