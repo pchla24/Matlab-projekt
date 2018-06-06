@@ -26,58 +26,40 @@ for i=1:4
 end
 
 figure
-subplot(3,4,1)
-bar(klasy,Srednie(:,1));
-title('dat1');
-ylabel('Wartosc srednia')
-subplot(3,4,2)
-bar(klasy,Srednie(:,2));
-title('dat2');
-ylabel('Wartosc srednia')
-subplot(3,4,3)
-bar(klasy,Srednie(:,3));
-title('dat3');
-ylabel('Wartosc srednia')
-subplot(3,4,4)
-bar(klasy,Srednie(:,4));
-title('dat4');
-ylabel('Wartosc srednia')
-subplot(3,4,5)
-bar(klasy,Srednie(:,5));
-title('dat5');
-ylabel('Wartosc srednia')
-subplot(3,4,6)
-bar(klasy,Srednie(:,6));
-title('dat6');
-ylabel('Wartosc srednia')
-subplot(3,4,7)
-bar(klasy,Srednie(:,7));
-title('dat7');
-ylabel('Wartosc srednia')
-subplot(3,4,8)
-bar(klasy,Srednie(:,8));
-title('dat8');
-ylabel('Wartosc srednia')
-subplot(3,4,9)
-bar(klasy,Srednie(:,9));
-title('dat9');
-ylabel('Wartosc srednia')
-subplot(3,4,10)
-bar(klasy,Srednie(:,10));
-title('dat10');
-ylabel('Wartosc srednia')
-subplot(3,4,11)
-bar(klasy,Srednie(:,11));
-title('dat11');
-ylabel('Wartosc srednia')
+for i=1:11
+    subplot(3,4,i)
+    bar(klasy,Srednie(:,i));
+    title(['dat' num2str(i)]);
+    ylabel('Wartosc srednia')
+end
 
 tabelaSrednich = array2table(Srednie);
 tabelaSrednich.Properties.VariableNames = datX;
 tabelaSrednich.Properties.RowNames = klasyCell;
 tabelaSrednich
 
+% Mediany ---------------------------------------------------
 
+Mediany = zeros(4,11);
 
+for i=1:4
+    for j=1:11
+        Mediany(i,j) = median(data_num(data_num(:,12)==i,j));
+    end
+end
+
+figure
+for i=1:11
+    subplot(3,4,i)
+    bar(klasy,Mediany(:,i));
+    title(['dat' num2str(i)]);
+    ylabel('Wartosc mediany')
+end
+
+tabelaMedian = array2table(Srednie);
+tabelaMedian.Properties.VariableNames = datX;
+tabelaMedian.Properties.RowNames = klasyCell;
+tabelaMedian
 
 
 
