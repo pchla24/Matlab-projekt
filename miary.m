@@ -11,10 +11,6 @@ datX = data(:,1:end-1).Properties.VariableNames;
 klasy = categorical({'Klasa 1','Klasa 2','Klasa 3','Klasa 4'});
 klasyCell = cellstr(klasy);
 
-klasa1 = data_num(data_num(:,12)==1,:);
-klasa2 = data_num(data_num(:,12)==2,:);
-klasa3 = data_num(data_num(:,12)==3,:);
-klasa4 = data_num(data_num(:,12)==4,:);
 
 % Srednie ---------------------------------------------------
 
