@@ -61,6 +61,67 @@ tabelaMedian.Properties.VariableNames = datX;
 tabelaMedian.Properties.RowNames = klasyCell;
 tabelaMedian
 
+% Rozstep ----------------------------------------------------
+
+Rozstep = zeros(4,11);
+
+for i=1:4
+    for j=1:11
+        Rozstep(i,j) = max(data_num(data_num(:,12)==i,j)) - min(data_num(data_num(:,12)==i,j));
+    end
+end
+
+figure
+for i=1:11
+    subplot(3,4,i)
+    bar(klasy,Rozstep(:,i));
+    title(['dat' num2str(i)]);
+    ylabel('Wartosc rozstepu')
+end
+
+tabelaRozstepu = array2table(Rozstep);
+tabelaRozstepu.Properties.VariableNames = datX;
+tabelaRozstepu.Properties.RowNames = klasyCell;
+tabelaRozstepu
+
+% Odchylenie standardowe i wariancja ------------------------
+
+OdchStd = zeros(4,11);
+Wariancja = zeros(4,11);
+
+for i=1:4
+    for j=1:11
+        OdchStd(i,j) = std(data_num(data_num(:,12)==i,j));
+        Wariancja(i,j) = var(data_num(data_num(:,12)==i,j));
+    end
+end
+
+figure
+for i=1:11
+    subplot(3,4,i)
+    bar(klasy,OdchStd(:,i));
+    title(['dat' num2str(i)]);
+    ylabel('Wartosc odchylenia std.')
+end
+
+figure
+for i=1:11
+    subplot(3,4,i)
+    bar(klasy,Wariancja(:,i));
+    title(['dat' num2str(i)]);
+    ylabel('Wartosc Wariancji')
+end
+
+tabelaOdchStd = array2table(OdchStd);
+tabelaOdchStd.Properties.VariableNames = datX;
+tabelaOdchStd.Properties.RowNames = klasyCell;
+tabelaOdchStd
+
+tabelaWariancji = array2table(Wariancja);
+tabelaWariancji.Properties.VariableNames = datX;
+tabelaWariancji.Properties.RowNames = klasyCell;
+tabelaWariancji
+
 
 
 
