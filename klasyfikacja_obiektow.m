@@ -90,7 +90,7 @@ test_training_tree = crosstab(data{c.training,12},wynik_training_tree);
 
 % Wynik klasyfikacji zbioru testowego
 wynik_test_tree = kl_tree.predict(data{c.test,1:11});
-test_test_tree = crosstab(data{c.test,12},wynik_test_tree)
+test_test_tree = crosstab(data{c.test,12},wynik_test_tree);
 % Wynik prawidlowy
 
 

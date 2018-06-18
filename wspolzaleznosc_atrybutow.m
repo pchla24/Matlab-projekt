@@ -82,6 +82,9 @@ tabelaKorelacji_klasy_4
 
 % corrplot(data{:,1:11})
 
+gplotmatrix(data{:,1:11},[],data.klasa)
+title('Macierze wykresów punktowych')
+
 
 
 
