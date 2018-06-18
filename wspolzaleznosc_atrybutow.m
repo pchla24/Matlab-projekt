@@ -80,6 +80,8 @@ tabelaKorelacji_klasy_4
 
 % corrplot(data{data.klasa==4,1:11})
 
+% corrplot(data{:,1:11})
+
 
 
 
