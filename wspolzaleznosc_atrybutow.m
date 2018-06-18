@@ -14,24 +14,70 @@ klasyCell = cellstr(klasy);
 
 % Kowariancja i korelacja ----------------------------------
 
-Kowar1 = cov(data{data.klasa==1,1:11});
-Korel1 = corr(data{data.klasa==1,1:11});
+Kowariancja_dla_klasy_1 = cov(data{data.klasa==1,1:11});
 
-Kowar2 = cov(data{data.klasa==2,1:11});
-Korel2 = corr(data{data.klasa==2,1:11});
+tabelaKowariancji_klasy_1 = array2table(Kowariancja_dla_klasy_1);
+tabelaKowariancji_klasy_1.Properties.VariableNames = datX;
+tabelaKowariancji_klasy_1.Properties.RowNames = datX;
+tabelaKowariancji_klasy_1
 
-Kowar3 = cov(data{data.klasa==3,1:11});
-Korel3 = corr(data{data.klasa==3,1:11});
+Korelacja_dla_klasy_1 = corr(data{data.klasa==1,1:11});
 
-Kowar4 = cov(data{data.klasa==4,1:11});
-Korel4 = corr(data{data.klasa==4,1:11});
+tabelaKorelacji_klasy_1 = array2table(Korelacja_dla_klasy_1);
+tabelaKorelacji_klasy_1.Properties.VariableNames = datX;
+tabelaKorelacji_klasy_1.Properties.RowNames = datX;
+tabelaKorelacji_klasy_1
+
+Kowariancja_dla_klasy_2 = cov(data{data.klasa==2,1:11});
+
+tabelaKowariancji_klasy_2 = array2table(Kowariancja_dla_klasy_2);
+tabelaKowariancji_klasy_2.Properties.VariableNames = datX;
+tabelaKowariancji_klasy_2.Properties.RowNames = datX;
+tabelaKowariancji_klasy_2
+
+Korelacja_dla_klasy_2 = corr(data{data.klasa==2,1:11});
+
+tabelaKorelacji_klasy_2 = array2table(Korelacja_dla_klasy_2);
+tabelaKorelacji_klasy_2.Properties.VariableNames = datX;
+tabelaKorelacji_klasy_2.Properties.RowNames = datX;
+tabelaKorelacji_klasy_2
+
+Kowariancja_dla_klasy_3 = cov(data{data.klasa==3,1:11});
+
+tabelaKowariancji_klasy_3 = array2table(Kowariancja_dla_klasy_3);
+tabelaKowariancji_klasy_3.Properties.VariableNames = datX;
+tabelaKowariancji_klasy_3.Properties.RowNames = datX;
+tabelaKowariancji_klasy_3
+
+Korelacja_dla_klasy_3 = corr(data{data.klasa==3,1:11});
+
+tabelaKorelacji_klasy_3 = array2table(Korelacja_dla_klasy_3);
+tabelaKorelacji_klasy_3.Properties.VariableNames = datX;
+tabelaKorelacji_klasy_3.Properties.RowNames = datX;
+tabelaKorelacji_klasy_3
+
+Kowariancja_dla_klasy_4 = cov(data{data.klasa==4,1:11});
+
+tabelaKowariancji_klasy_4 = array2table(Kowariancja_dla_klasy_4);
+tabelaKowariancji_klasy_4.Properties.VariableNames = datX;
+tabelaKowariancji_klasy_4.Properties.RowNames = datX;
+tabelaKowariancji_klasy_4
+
+Korelacja_dla_klasy_4 = corr(data{data.klasa==4,1:11});
+
+tabelaKorelacji_klasy_4 = array2table(Korelacja_dla_klasy_4);
+tabelaKorelacji_klasy_4.Properties.VariableNames = datX;
+tabelaKorelacji_klasy_4.Properties.RowNames = datX;
+tabelaKorelacji_klasy_4
+
+% Wykresy korelacji -------------------------------------
 
 % corrplot(data{data.klasa==1,1:11})
-% 
+
 % corrplot(data{data.klasa==2,1:11})
-% 
+
 % corrplot(data{data.klasa==3,1:11})
-% 
+
 % corrplot(data{data.klasa==4,1:11})
 
 
