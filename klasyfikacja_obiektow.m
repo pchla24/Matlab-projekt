@@ -12,6 +12,7 @@ klasyCell = cellstr(klasy);
 
 c = cvpartition(data.klasa,'HoldOut',0.3);
 
+% Klasyfikacja obiektow (czesc I) --------------------------------------
 
 % Klasyfikator najblizszego sasiada ------------------------------------
 
@@ -94,8 +95,78 @@ test_test_tree = crosstab(data{c.test,12},wynik_test_tree);
 % Wynik prawidlowy
 
 
+% Klasyfikacja obiektow (czesc II) --------------------------------------
+
+% Klasyfikator najblizszego sasiada -------------------------------------
+
+kl_nn2 = fitcknn(data{c.training,7:8},data{c.training,12},'NumNeighbors',1);
+% Wynik klasyfikacji zbioru ucz¹cego
+wynik_training_nn2 = kl_nn2.predict(data{c.training,7:8});
+test_training_nn2 = crosstab(data{c.training,12},wynik_training_nn2);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_nn2 = kl_nn2.predict(data{c.test,7:8});
+test_test_nn2 = crosstab(data{c.test,12},wynik_test_nn2);
+% Wynik prawidlowy
 
 
+% Klasyfikator k-najblizszych sasiadow --------------------------------
+
+% W tym przypadku za k przyjmiemy 4
+kl_knn2 = fitcknn(data{c.training,7:8},data{c.training,12},'NumNeighbors',4);
+% Wynik klasyfikacji zbioru ucz¹cego
+wynik_training_knn2 = kl_knn2.predict(data{c.training,7:8});
+test_training_knn2 = crosstab(data{c.training,12},wynik_training_knn2);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_knn2 = kl_knn2.predict(data{c.test,7:8});
+test_test_knn2 = crosstab(data{c.test,12},wynik_test_knn2);
+% Wynik prawidlowy
+
+
+% Metoda najblizszych prototypow --------------------------------------
+
+kl_pro2 = fitcknn(pro{:,7:8},pro{:,12},'NumNeighbors',1);
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_pro2 = kl_pro2.predict(data{c.training,7:8});
+test_training_pro2 = crosstab(data{c.training,12},wynik_training_pro2);
+% % Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_pro2 = kl_pro2.predict(data{c.test,7:8});
+test_test_pro2 = crosstab(data{c.test,12},wynik_test_pro2);
+% Wynik prawidlowy
+
+% Naiwny klasyfikator Bayesa ------------------------------------------
+
+kl_bay2 = fitcnb(data{c.training,7:8},data{c.training,12});
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_bay2 = kl_bay2.predict(data{c.training,7:8});
+test_training_bay2 = crosstab(data{c.training,12},wynik_training_bay2);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_bay2 = kl_bay2.predict(data{c.test,7:8});
+test_test_bay2 = crosstab(data{c.test,12},wynik_test_bay2);
+% Wynik prawidlowy
+
+% Klasyfikacja z wykorzystaniem drzewa decyzyjnego -------------------
+
+kl_tree2 = fitctree(data{c.training,7:8},data{c.training,12});
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_tree2 = kl_tree2.predict(data{c.training,7:8});
+test_training_tree2 = crosstab(data{c.training,12},wynik_training_tree2);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_tree2 = kl_tree2.predict(data{c.test,7:8});
+test_test_tree2 = crosstab(data{c.test,12},wynik_test_tree2);
+% Wynik prawidlowy
 
 
 
