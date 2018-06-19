@@ -10,13 +10,7 @@ data_do_grup = array2table(data{:,1:11});
 datX = data(:,1:end-1).Properties.VariableNames;
 data_do_grup.Properties.VariableNames = datX;
 
-% klasy = kmeans([data_do_grup.dat7 data_do_grup.dat8],4,'Replicates',10);
-% test1 = crosstab(klasy,data.klasa)
-
-% c = clusterdata(data_do_grup,'maxclust',4,'linkage','complete');
-% test1 = crosstab(c,data.klasa);
-
-% Grupowanie metod¹ k-œrednich
+%%  Grupowanie metod¹ k-œrednich
 
 for i=1:11
     [klasy, centr, sumaod] = kmeans([data_do_grup.dat7 data_do_grup.dat8],i,'Replicates',15);
@@ -52,8 +46,19 @@ plot(odla);
 title('Œrednia odleg³oœæ dla klasy')
 subplot(1,2,2);
 plot(difa);
-title('Wzglêdny przyrost odleg³oœæi')
+title('Wzglêdny przyrost odleg³oœci')
 
+%%  Grupowanie aglomeracyjne 
 
+figure
+scatter(data_do_grup.dat7,data_do_grup.dat8,5)
+
+d = pdist([data_do_grup.dat7 data_do_grup.dat8]);
+Z = linkage(d,'average');
+for i=1:11
+    c = cluster(Z,'maxclust',i);
+    subplot(3,4,i);
+    scatter(data_do_grup.dat7,data_do_grup.dat8,10,c)
+end
 
 
