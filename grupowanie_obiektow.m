@@ -59,6 +59,14 @@ for i=1:11
     c = cluster(Z,'maxclust',i);
     subplot(3,4,i);
     scatter(data_do_grup.dat7,data_do_grup.dat8,10,c)
+    for j=1:i
+        avg=zeros(1);
+        avg(j,1) = mean(data_do_grup{c==j,7});
+        avg(j,2) = mean(data_do_grup{c==j,8});
+        hold on 
+        scatter( avg(:,1),avg(:,2),10,[1 0 0],'*')
+        hold off
+    end
 end
 
 
