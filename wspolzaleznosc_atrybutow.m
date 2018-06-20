@@ -82,9 +82,21 @@ tabelaKorelacji_klasy_4
 
 % corrplot(data{:,1:11})
 
+figure
 gplotmatrix(data{:,1:11},[],data.klasa)
-title('Macierze wykresów punktowych')
+title('Macierz wykresów punktowych')
 
-
+figure
+subplot(1,2,1)
+scatter(data.dat7,data.dat8,10,data.klasa)
+title('Wykres punktowy dwóch atrybutów')
+xlabel('dat7')
+ylabel('dat8')
+subplot(1,2,2)
+scatter3(data.dat7,data.dat8,data.dat4,10,data.klasa)
+title('Wykres punktowy trzech atrybutów')
+xlabel('dat7')
+ylabel('dat8')
+zlabel('dat4')
 
 
