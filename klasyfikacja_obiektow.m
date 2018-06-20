@@ -73,11 +73,24 @@ kl_bay = fitcnb(data{c.training,1:11},data{c.training,12});
 % Wynik klasyfikacji zbioru uczacego
 wynik_training_bay = kl_bay.predict(data{c.training,1:11});
 test_training_bay = crosstab(data{c.training,12},wynik_training_bay);
+
+% figure % Opcjonalny wykres
+% subplot(1,2,1)
+% scatter(data{c.training,7},data{c.training,8},5,wynik_training_bay)
+% title('Zbiór ucz¹cy Bayesa')
+% xlabel('dat7')
+% ylabel('dat8')
 % Wynik prawidlowy
 
 % Wynik klasyfikacji zbioru testowego
 wynik_test_bay = kl_bay.predict(data{c.test,1:11});
 test_test_bay = crosstab(data{c.test,12},wynik_test_bay);
+
+% subplot(1,2,2)
+% scatter(data{c.test,7},data{c.test,8},5,wynik_test_bay)
+% title('Zbiór testowy Bayesa')
+% xlabel('dat7')
+% ylabel('dat8')
 % Wynik prawidlowy
 
 % Klasyfikacja z wykorzystaniem drzewa decyzyjnego -------------------

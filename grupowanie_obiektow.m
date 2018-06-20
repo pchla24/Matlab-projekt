@@ -94,6 +94,7 @@ end
 
 %%  Grupowanie aglomeracyjne 
 
+% Grupowanie dla dwóch danych
 d = pdist([data_do_grup.dat7 data_do_grup.dat8]);
 Z = linkage(d,'average');
 figure
@@ -103,7 +104,6 @@ for i=1:11
     subplot(3,4,i);
     scatter(data_do_grup.dat7,data_do_grup.dat8,10,c)
     title(['Liczba klas: ' num2str(i)])
-    title(['Liczba klas: ' num2str(i)])
     set(gca,'xtick',[],'ytick',[])
     xlabel('dat7')
     ylabel('dat8')
@@ -112,6 +112,7 @@ for i=1:11
     end
 end
 
+% Grupowanie dla trzech danych
 d3 = pdist([data_do_grup.dat7 data_do_grup.dat8 data_do_grup.dat4]);
 Z3 = linkage(d3,'average');
 figure
@@ -131,6 +132,7 @@ for i=1:11
     end
 end
  ilowkl3
+ 
  figure
  plot(nanmin(ilowkl,[],2))
  hold on 
