@@ -254,11 +254,12 @@ wynik_test_tree3 = kl_tree3.predict(data{c.test,[7 8 4]});
 test_test_tree3 = crosstab(data{c.test,12},wynik_test_tree3);
 % Wynik prawidlowy
 
-
-
-
-
-
+sep=NaN(4,1);
+test_test_nna = [test_test_nn sep test_test_nn2 sep test_test_nn3] % nn knn pro, wszystkie - Ÿle, 2 i 3 te same pojedyncze b³êdy
+test_test_knna = [test_test_knn sep test_test_knn2 sep test_test_knn3]
+test_test_proa = [test_test_pro sep test_test_pro2 sep test_test_pro3]
+test_test_baya = [test_test_bay sep test_test_bay2 sep test_test_bay3] % Myli pojedyncze dla 2, dla wszystkie i 3 bezb³êdnie
+test_test_treea = [test_test_tree sep test_test_tree2 sep test_test_tree3] % RóŸnie
 
 
 
