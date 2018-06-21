@@ -181,8 +181,78 @@ wynik_test_tree2 = kl_tree2.predict(data{c.test,7:8});
 test_test_tree2 = crosstab(data{c.test,12},wynik_test_tree2);
 % Wynik prawidlowy
 
+% Klasyfikacja obiektow (czesc III) --------------------------------------
+
+% Klasyfikator najblizszego sasiada -------------------------------------
+
+kl_nn3 = fitcknn(data{c.training,[7 8 4]},data{c.training,12},'NumNeighbors',1);
+% Wynik klasyfikacji zbioru ucz¹cego
+wynik_training_nn3 = kl_nn3.predict(data{c.training,[7 8 4]});
+test_training_nn3 = crosstab(data{c.training,12},wynik_training_nn3);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_nn3 = kl_nn3.predict(data{c.test,[7 8 4]});
+test_test_nn3 = crosstab(data{c.test,12},wynik_test_nn3);
+% Wynik prawidlowy
 
 
+% Klasyfikator k-najblizszych sasiadow --------------------------------
+
+% W tym przypadku za k przyjmiemy 4
+kl_knn3 = fitcknn(data{c.training,[7 8 4]},data{c.training,12},'NumNeighbors',4);
+% Wynik klasyfikacji zbioru ucz¹cego
+wynik_training_knn3 = kl_knn3.predict(data{c.training,[7 8 4]});
+test_training_knn3 = crosstab(data{c.training,12},wynik_training_knn3);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_knn3 = kl_knn3.predict(data{c.test,[7 8 4]});
+test_test_knn3 = crosstab(data{c.test,12},wynik_test_knn3);
+% Wynik prawidlowy
+
+
+% Metoda najblizszych prototypow --------------------------------------
+
+kl_pro3 = fitcknn(pro{:,[7 8 4]},pro{:,12},'NumNeighbors',1);
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_pro3 = kl_pro3.predict(data{c.training,[7 8 4]});
+test_training_pro3 = crosstab(data{c.training,12},wynik_training_pro3);
+% % Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_pro3 = kl_pro3.predict(data{c.test,[7 8 4]});
+test_test_pro3 = crosstab(data{c.test,12},wynik_test_pro3);
+% Wynik prawidlowy
+
+% Naiwny klasyfikator Bayesa ------------------------------------------
+
+kl_bay3 = fitcnb(data{c.training,[7 8 4]},data{c.training,12});
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_bay3 = kl_bay3.predict(data{c.training,[7 8 4]});
+test_training_bay3 = crosstab(data{c.training,12},wynik_training_bay3);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_bay3 = kl_bay3.predict(data{c.test,[7 8 4]});
+test_test_bay3 = crosstab(data{c.test,12},wynik_test_bay3);
+% Wynik prawidlowy
+
+% Klasyfikacja z wykorzystaniem drzewa decyzyjnego -------------------
+
+kl_tree3 = fitctree(data{c.training,[7 8 4]},data{c.training,12});
+
+% Wynik klasyfikacji zbioru uczacego
+wynik_training_tree3 = kl_tree3.predict(data{c.training,[7 8 4]});
+test_training_tree3 = crosstab(data{c.training,12},wynik_training_tree3);
+% Wynik prawidlowy
+
+% Wynik klasyfikacji zbioru testowego
+wynik_test_tree3 = kl_tree3.predict(data{c.test,[7 8 4]});
+test_test_tree3 = crosstab(data{c.test,12},wynik_test_tree3);
+% Wynik prawidlowy
 
 
 
