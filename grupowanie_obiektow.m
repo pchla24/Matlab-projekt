@@ -65,7 +65,7 @@ plot(odl);
 hold on 
 plot(odl3);
 hold off
-title('Œrednia odleg³oœæ punktów od centroidów ich klasy')
+title('Œrednia odleg³oœæ')
 legend('2 dane','3 dane');
 xlabel('Liczba klas');
 ylabel('Œrednia odleg³oœæ');
@@ -74,7 +74,7 @@ plot(dif);
 hold on 
 plot(dif3);
 hold off
-title('Przyrost œredniej odleg³oœæi punktów od centroidów ich klasy')
+title('Przyrost odleg³oœæi')
 legend('2 dane','3 dane');
 xlabel('Liczba klas');
 ylabel('Przyrost');
