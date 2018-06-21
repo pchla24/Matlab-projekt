@@ -5,7 +5,7 @@ clear;
 load projekt16.mat
 data = t;
 
-% Przygotowanie danych do grupowania
+% Przygotowanie atrybutów do grupowania
 data_do_grup = array2table(data{:,1:11});
 datX = data(:,1:end-1).Properties.VariableNames;
 data_do_grup.Properties.VariableNames = datX;
@@ -13,7 +13,7 @@ data_do_grup.Properties.VariableNames = datX;
 
 %%  Grupowanie metod¹ k-œrednich
 
-% Metoda k-œrednich dla dwóch danych
+% Metoda k-œrednich dla dwóch atrybutów
 figure
 odl=zeros(11,1);
 dif=zeros(11,1);
@@ -36,7 +36,7 @@ for i=1:11
     end
 end
 
-% Metoda k-œrednich dla trzech danych
+% Metoda k-œrednich dla trzech atrybutów
 figure
 odl3=zeros(11,1);
 dif3=zeros(11,1);
@@ -79,7 +79,7 @@ legend('2 dane','3 dane');
 xlabel('Liczba klas');
 ylabel('Przyrost');
 
-% Metoda k-œrednich ze wszystkich danych
+% Metoda k-œrednich ze wszystkich atrybutów
 figure
 for i=1:11
     [klasyw, centraw] = kmeans([data_do_grup.dat1 data_do_grup.dat2 data_do_grup.dat3 data_do_grup.dat4 data_do_grup.dat5 data_do_grup.dat7 data_do_grup.dat8 data_do_grup.dat9 data_do_grup.dat10 data_do_grup.dat11],i,'Replicates',15);  
@@ -94,7 +94,7 @@ end
 
 %%  Grupowanie aglomeracyjne 
 
-% Grupowanie dla dwóch danych
+% Grupowanie dla dwóch atrybutów
 d = pdist([data_do_grup.dat7 data_do_grup.dat8]);
 Z = linkage(d,'average');
 figure
@@ -112,7 +112,7 @@ for i=1:11
     end
 end
 
-% Grupowanie dla trzech danych
+% Grupowanie dla trzech atrybutów
 d3 = pdist([data_do_grup.dat7 data_do_grup.dat8 data_do_grup.dat4]);
 Z3 = linkage(d3,'average');
 figure
