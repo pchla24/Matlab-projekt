@@ -217,12 +217,17 @@ for i=1:15
 end
 
 sep=NaN(4,1);
-test_test_nna = [mean(test_test_nn,3) sep mean(test_test_nn2,3) sep mean(test_test_nn3,3)] % nn knn pro, wszystkie - Ÿle, 2 i 3 te same pojedyncze b³êdy
+disp('Uœrednione wyniki dla 15 iteracji dla wszystich klasyfikatorów w kolejnoœci: wszystkie, 2 atrybuty, 3 atrybuty')
+disp('Klasyfikator najblizszego s¹siada')
+test_test_nna = [mean(test_test_nn,3) sep mean(test_test_nn2,3) sep mean(test_test_nn3,3)] 
+disp('Klasyfikator k-najblizszych s¹siadów')
 test_test_knna = [mean(test_test_knn,3) sep mean(test_test_knn2,3) sep mean(test_test_knn3,3)]
+disp('Metoda najblizszych prototypów')
 test_test_proa = [mean(test_test_pro,3) sep mean(test_test_pro2,3) sep mean(test_test_pro3,3)]
-test_test_baya = [mean(test_test_bay,3) sep mean(test_test_bay2,3) sep mean(test_test_bay3,3)] % Myli pojedyncze dla 2, dla wszystkie i 3 bezb³êdnie
-test_test_treea = [mean(test_test_tree,3) sep mean(test_test_tree2,3) sep mean(test_test_tree3,3)] % RóŸnie
-
+disp('Naiwny klasyfikator Bayesa')
+test_test_baya = [mean(test_test_bay,3) sep mean(test_test_bay2,3) sep mean(test_test_bay3,3)] 
+disp('Klasyfikacja z wykorzystaniem drzewa decyzyjnego')
+test_test_treea = [mean(test_test_tree,3) sep mean(test_test_tree2,3) sep mean(test_test_tree3,3)] 
 
 
 
