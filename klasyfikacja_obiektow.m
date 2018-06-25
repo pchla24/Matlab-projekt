@@ -68,7 +68,7 @@ for i=1:15
 
     % Wynik klasyfikacji zbioru uczacego
     wynik_training_bay = kl_bay.predict(data{c.training,1:11});
-    test_training_bay(:,:,i) = crosstab(data{c.training,12},wynik_training_bay);
+    test_training_bay = crosstab(data{c.training,12},wynik_training_bay);
 
     % Wynik klasyfikacji zbioru testowego
     wynik_test_bay = kl_bay.predict(data{c.test,1:11});
